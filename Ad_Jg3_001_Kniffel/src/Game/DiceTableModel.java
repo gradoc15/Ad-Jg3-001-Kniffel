@@ -23,7 +23,10 @@ public class DiceTableModel extends AbstractTableModel
             diceData.add(new Dice(i));
         }
         
-        reroll();
+        for(int i = 0; i < diceData.size(); i++)
+        {
+            diceData.get(i).setNum(0);
+        }
     }
     
     public void reroll()

@@ -1,5 +1,7 @@
 package Game;
 
+import javax.swing.JOptionPane;
+
 
 
 /*
@@ -15,9 +17,8 @@ package Game;
 public class KniffelGui extends javax.swing.JFrame
 {
 
-    /**
-     * Creates new form KniffelGui
-     */
+    private int rerollCount = 0;
+    
     public KniffelGui()
     {
         initComponents();
@@ -95,7 +96,7 @@ public class KniffelGui extends javax.swing.JFrame
         getContentPane().add(plO, java.awt.BorderLayout.PAGE_START);
 
         jPanel6.setMaximumSize(new java.awt.Dimension(500, 500));
-        jPanel6.setPreferredSize(new java.awt.Dimension(350, 400));
+        jPanel6.setPreferredSize(new java.awt.Dimension(450, 400));
         jPanel6.setLayout(new java.awt.GridLayout(2, 1));
 
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -161,11 +162,18 @@ public class KniffelGui extends javax.swing.JFrame
 
     private void btPlayActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btPlayActionPerformed
     {//GEN-HEADEREND:event_btPlayActionPerformed
-        taCube.clearSelection();
-        diceBl.reroll();
         
-        System.out.println(taCube.getSelectedColumn());
-        System.out.println(taCube.getSelectedRow());
+        if(rerollCount < 3)
+        {
+            taCube.clearSelection();
+            diceBl.reroll();
+            rerollCount++;
+
+            System.out.println(taCube.getSelectedColumn());
+            System.out.println(taCube.getSelectedRow());
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Bitte wähle zuerst ein Feld aus","Information",1);
         
     }//GEN-LAST:event_btPlayActionPerformed
 
@@ -190,6 +198,7 @@ public class KniffelGui extends javax.swing.JFrame
             tfSummeOben.setText(""+kniffelBl.getSumOben());
             tfSummeUnten.setText(""+kniffelBl.getSumUnten());
             tfPunkteGes.setText(""+kniffelBl.getSum());
+            rerollCount  = 0;
         }
     }//GEN-LAST:event_onClickCard
 
