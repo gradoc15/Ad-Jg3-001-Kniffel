@@ -23,9 +23,9 @@ public class KniffelGui extends javax.swing.JFrame
         initComponents();
         taCube.setRowHeight(84);
         taCube.setModel(diceBl);
-//        taCard.setModel(kniffelModel);
+        taCard.setModel(kniffelModel);
         taCube.setDefaultRenderer(Object.class, new DiceTableRenderer());
-//        taCard.setDefaultRenderer(Object.class, new KniffelTableRenderer());
+        taCard.setDefaultRenderer(Object.class, new KniffelTableRenderer());
         
     }
 
