@@ -19,19 +19,24 @@ public class KniffelTableModel extends AbstractTableModel
     
     public KniffelTableModel()
     {
-        dataRow.add(new KniffelRow("NurEineser"));
-        dataRow.add(new KniffelRow("NurZweier"));
-        dataRow.add(new KniffelRow("NurDreier"));
-        dataRow.add(new KniffelRow("NurVierer"));
-        dataRow.add(new KniffelRow("NurFuenfer"));
-        dataRow.add(new KniffelRow("NurSechser"));
-        dataRow.add(new KniffelRow("Pasch3"));
-        dataRow.add(new KniffelRow("Pasch4"));
-        dataRow.add(new KniffelRow("FullHouee"));
-        dataRow.add(new KniffelRow("StrasseKlein"));
-        dataRow.add(new KniffelRow("StrasseGroß"));
-        dataRow.add(new KniffelRow("Kniffel"));
+        dataRow.add(new KniffelRow("NurEineser",0));
+        dataRow.add(new KniffelRow("NurZweier",1));
+        dataRow.add(new KniffelRow("NurDreier",2));
+        dataRow.add(new KniffelRow("NurVierer",3));
+        dataRow.add(new KniffelRow("NurFuenfer",4));
+        dataRow.add(new KniffelRow("NurSechser",5));
+        dataRow.add(new KniffelRow("Pasch3",6));
+        dataRow.add(new KniffelRow("Pasch4",7));
+        dataRow.add(new KniffelRow("FullHouee",8));
+        dataRow.add(new KniffelRow("StrasseKlein",9));
+        dataRow.add(new KniffelRow("StrasseGroß",10));
+        dataRow.add(new KniffelRow("Kniffel",11));
         
+    }
+    
+    public void update(int row)
+    {
+        fireTableRowsUpdated(row, row);
     }
 
     @Override

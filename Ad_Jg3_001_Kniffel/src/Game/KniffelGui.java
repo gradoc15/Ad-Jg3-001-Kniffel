@@ -177,7 +177,16 @@ public class KniffelGui extends javax.swing.JFrame
 
     private void onClickCard(java.awt.event.MouseEvent evt)//GEN-FIRST:event_onClickCard
     {//GEN-HEADEREND:event_onClickCard
+        KniffelRow r = (KniffelRow) kniffelModel.getValueAt(taCard.getSelectedRow(), taCard.getSelectedColumn());
+        System.out.println(r.isUsed());
         
+        if(!r.isUsed())
+        {
+            kniffelBl.calc(((KniffelRow) kniffelModel.getValueAt(taCard.getSelectedRow(), 0)),diceBl.getDice());
+            r.setUsed(true);
+            System.out.println(r.getPoints());
+            kniffelModel.update(taCard.getSelectedRow());
+        }
     }//GEN-LAST:event_onClickCard
 
     /**

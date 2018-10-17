@@ -14,12 +14,20 @@ public class KniffelRow
     String bez;
     boolean used = false;
     int points = 0;
+    int id;
 
-    public KniffelRow(String bez)
+    public KniffelRow(String bez, int id)
     {
         this.bez = bez;
+        this.id = id;
     }
 
+    public int getId()
+    {
+        return id;
+    }
+
+    
     public String getBez()
     {
         return bez;

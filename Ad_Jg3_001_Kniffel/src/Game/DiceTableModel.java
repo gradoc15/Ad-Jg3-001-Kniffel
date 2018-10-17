@@ -54,4 +54,9 @@ public class DiceTableModel extends AbstractTableModel
         return diceData.get(columnIndex);
     }
     
+    public ArrayList<Dice> getDice()
+    {
+        return  diceData;
+    }
+    
 }

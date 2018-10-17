@@ -16,10 +16,7 @@ public class KniffelTableRenderer implements TableCellRenderer
         JLabel l = new JLabel();
         JCheckBox cb = new JCheckBox();
         
-        if(table.getSelectedColumn() == 1 && isSelected)
-        {
-            r.setUsed(true);
-        }
+        
         
         if(column == 0)
             l.setText(r.getBez());
@@ -27,6 +24,9 @@ public class KniffelTableRenderer implements TableCellRenderer
             cb.setSelected(r.isUsed());
         else if(column == 2)
             l.setText(""+r.getPoints());
+        
+        if(table.getSelectedColumn() == 1 && isSelected)
+            cb.setSelected(true);
         
         
             
