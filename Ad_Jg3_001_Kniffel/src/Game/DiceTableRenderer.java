@@ -30,21 +30,26 @@ public class DiceTableRenderer implements TableCellRenderer
         String str  = this.getClass().getResource("/Images/"+d.getNum()+".png").getPath();
         l.setIcon(new ImageIcon(str));
         
-        if(isSelected && table.getSelectedColumn() == d.getColl())
+        if(d.getNum() != 0)
         {
-            d.setSelected(!d.isSelected());  
+            if(isSelected && table.getSelectedColumn() == d.getColl())
+            {
+                d.setSelected(!d.isSelected());  
+            }
+
+
+            if(d.isSelected())
+                l.setBackground(Color.red);
+            else
+                l.setBackground(bc);
+
+            System.out.println("Dice: "+column+""+d.getColl()+" selected= "+d.isSelected());
+
+
+            
         }
-        
-        
-        if(d.isSelected())
-            l.setBackground(Color.red);
-        else
-            l.setBackground(bc);
-        
-        System.out.println("Dice: "+column+""+d.getColl()+" selected= "+d.isSelected());
-        
-        
         return l;
     }
+    
     
 }

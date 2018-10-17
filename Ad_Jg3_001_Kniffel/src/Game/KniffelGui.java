@@ -56,6 +56,8 @@ public class KniffelGui extends javax.swing.JFrame
         tfPunkteGes = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kniffel");
+        setResizable(false);
 
         plO.setMaximumSize(new java.awt.Dimension(500, 500));
         plO.setPreferredSize(new java.awt.Dimension(73, 150));
@@ -185,20 +187,30 @@ public class KniffelGui extends javax.swing.JFrame
 
     private void onClickCard(java.awt.event.MouseEvent evt)//GEN-FIRST:event_onClickCard
     {//GEN-HEADEREND:event_onClickCard
-        KniffelRow r = (KniffelRow) kniffelModel.getValueAt(taCard.getSelectedRow(), taCard.getSelectedColumn());
-        System.out.println(r.isUsed());
-        
-        if(!r.isUsed())
+        if(rerollCount > 0)
         {
-            kniffelBl.calc(((KniffelRow) kniffelModel.getValueAt(taCard.getSelectedRow(), 0)),diceBl.getDice());
-            r.setUsed(true);
-            
-            kniffelModel.update(taCard.getSelectedRow());
-            tfBonusOben.setText(""+kniffelBl.getSumBonusOben());
-            tfSummeOben.setText(""+kniffelBl.getSumOben());
-            tfSummeUnten.setText(""+kniffelBl.getSumUnten());
-            tfPunkteGes.setText(""+kniffelBl.getSum());
-            rerollCount  = 0;
+            KniffelRow r = (KniffelRow) kniffelModel.getValueAt(taCard.getSelectedRow(), taCard.getSelectedColumn());
+            System.out.println(r.isUsed());
+
+            if(!r.isUsed())
+            {
+                kniffelBl.calc(((KniffelRow) kniffelModel.getValueAt(taCard.getSelectedRow(), 0)),diceBl.getDice());
+                r.setUsed(true);
+
+                kniffelModel.update(taCard.getSelectedRow());
+    //            tfBonusOben.setText(""+kniffelBl.getSumBonusOben());
+    //            tfSummeOben.setText(""+kniffelBl.getSumOben());
+    //            tfSummeUnten.setText(""+kniffelBl.getSumUnten());
+    //            tfPunkteGes.setText(""+kniffelBl.getSum());
+                rerollCount  = 0;
+                
+                diceBl.setDiceDefault();
+            }
+        }
+        else
+        {
+            taCard.clearSelection();
+            JOptionPane.showMessageDialog(null, "Bitte würfle zuerst","Information",1);
         }
     }//GEN-LAST:event_onClickCard
 

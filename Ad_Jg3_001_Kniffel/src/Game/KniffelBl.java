@@ -191,36 +191,6 @@ public class KniffelBl
         return sum;
     }
     
-    public int getSumUnten()
-    {
-        int sum = 0;
-        
-        for(int i = 6; i < 12; i++)
-        {
-            sum += dice.get(i).getNum();
-        }
-        
-        return sum;
-    }
-    
-    public int  getSumBonusOben()
-    {
-        if(getSumOben() > 63)
-            return 35;
-        return 0;
-    }
-    
-    public int getSum()
-    {
-        int sum = 0;
-        
-        sum += getSumOben();
-        sum += getSumUnten();
-        sum+= getSumBonusOben();
-        sum+= KniffelRow.getBonus();
-        
-        return sum;
-    }
-         
+      
 }
 
