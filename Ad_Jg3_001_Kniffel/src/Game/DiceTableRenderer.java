@@ -5,11 +5,46 @@
  */
 package Game;
 
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+
 /**
  *
  * @author User
  */
-public class DiceTableRenderer
+public class DiceTableRenderer implements TableCellRenderer
 {
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+    {
+        Dice d = (Dice) value;
+        JLabel l = new JLabel();
+        Color bc = l.getBackground();
+        l.setOpaque(true);
+        
+        String str  = this.getClass().getResource("/Images/"+d.getNum()+".png").getPath();
+        l.setIcon(new ImageIcon(str));
+        
+        if(isSelected && table.getSelectedColumn() == d.getColl())
+        {
+            d.setSelected(!d.isSelected());  
+        }
+        
+        
+        if(d.isSelected())
+            l.setBackground(Color.red);
+        else
+            l.setBackground(bc);
+        
+        System.out.println("Dice: "+column+""+d.getColl()+" selected= "+d.isSelected());
+        
+        
+        return l;
+    }
     
 }

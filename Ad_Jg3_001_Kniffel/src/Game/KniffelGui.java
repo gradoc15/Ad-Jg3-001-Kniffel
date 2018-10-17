@@ -21,11 +21,12 @@ public class KniffelGui extends javax.swing.JFrame
     public KniffelGui()
     {
         initComponents();
+        taCube.setRowHeight(84);
         taCube.setModel(diceBl);
-        taCard.setModel(kniffelModel);
+//        taCard.setModel(kniffelModel);
         taCube.setDefaultRenderer(Object.class, new DiceTableRenderer());
-        taCard.setDefaultRenderer(Object.class, new KniffelTableRenderer());
-//        taCube.setRowHeight(84);
+//        taCard.setDefaultRenderer(Object.class, new KniffelTableRenderer());
+        
     }
 
     private DiceTableModel diceBl = new DiceTableModel();
@@ -160,26 +161,23 @@ public class KniffelGui extends javax.swing.JFrame
 
     private void btPlayActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btPlayActionPerformed
     {//GEN-HEADEREND:event_btPlayActionPerformed
-        diceBl.play();
+        taCube.clearSelection();
+        diceBl.reroll();
+        
+        System.out.println(taCube.getSelectedColumn());
+        System.out.println(taCube.getSelectedRow());
+        
     }//GEN-LAST:event_btPlayActionPerformed
 
     private void onClickedCube(java.awt.event.MouseEvent evt)//GEN-FIRST:event_onClickedCube
     {//GEN-HEADEREND:event_onClickedCube
-        diceBl.setSelected(taCube.getSelectedColumn());
         taCube.clearSelection();
         
     }//GEN-LAST:event_onClickedCube
 
     private void onClickCard(java.awt.event.MouseEvent evt)//GEN-FIRST:event_onClickCard
     {//GEN-HEADEREND:event_onClickCard
-        System.out.println(taCard.getSelectedRow());
-        System.out.println(taCard.getSelectedColumn());
         
-        if(taCard.getSelectedColumn() == 1 && taCard.getSelectedRow() == 0)
-        {
-            kniffelBl.calcPoints(diceBl.getDive(), taCard.getSelectedRow(), taCard.getSelectedColumn());
-        }
-        kniffelModel.update();
     }//GEN-LAST:event_onClickCard
 
     /**
