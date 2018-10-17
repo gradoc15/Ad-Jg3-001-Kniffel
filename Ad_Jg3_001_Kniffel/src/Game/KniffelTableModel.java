@@ -32,6 +32,7 @@ public class KniffelTableModel extends AbstractTableModel
         dataRow.add(new KniffelRow("StrasseGroß",10));
         dataRow.add(new KniffelRow("Kniffel",11));
         
+        dataRow.add(new KniffelRow("Bonus",13));
     }
     
     public void update(int row)
@@ -42,7 +43,7 @@ public class KniffelTableModel extends AbstractTableModel
     @Override
     public int getRowCount()
     {
-        return dataRow.size();
+        return dataRow.size()-1;
     }
 
     @Override

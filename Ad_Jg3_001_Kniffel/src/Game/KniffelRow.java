@@ -11,10 +11,13 @@ package Game;
  */
 public class KniffelRow
 {
-    String bez;
-    boolean used = false;
-    int points = 0;
-    int id;
+    private static int bonus;
+
+    
+    private String bez;
+    private boolean used = false;
+    private int points = 0;
+    private int id;
 
     public KniffelRow(String bez, int id)
     {
@@ -57,6 +60,16 @@ public class KniffelRow
     {
         this.points = points;
     }
+    
+    
+    public static int getBonus()
+    {
+        return bonus;
+    }
 
+    public static void setBonus(int bonus)
+    {
+        KniffelRow.bonus = bonus;
+    }
     
 }

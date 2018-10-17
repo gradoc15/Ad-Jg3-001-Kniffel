@@ -131,25 +131,25 @@ public class KniffelGui extends javax.swing.JFrame
         jLabel1.setText("Obere Summe: ");
         jPanel3.add(jLabel1);
 
-        tfSummeOben.setText("jTextField1");
+        tfSummeOben.setEditable(false);
         jPanel3.add(tfSummeOben);
 
         jLabel2.setText("Oberer Bonus: ");
         jPanel3.add(jLabel2);
 
-        tfBonusOben.setText("jTextField1");
+        tfBonusOben.setEditable(false);
         jPanel3.add(tfBonusOben);
 
         jLabel3.setText("Untere Summe: ");
         jPanel3.add(jLabel3);
 
-        tfSummeUnten.setText("jTextField1");
+        tfSummeUnten.setEditable(false);
         jPanel3.add(tfSummeUnten);
 
         jLabel4.setText("Gesamt-Punkte");
         jPanel3.add(jLabel4);
 
-        tfPunkteGes.setText("jTextField1");
+        tfPunkteGes.setEditable(false);
         jPanel3.add(tfPunkteGes);
 
         jPanel6.add(jPanel3);
@@ -184,8 +184,12 @@ public class KniffelGui extends javax.swing.JFrame
         {
             kniffelBl.calc(((KniffelRow) kniffelModel.getValueAt(taCard.getSelectedRow(), 0)),diceBl.getDice());
             r.setUsed(true);
-            System.out.println(r.getPoints());
+            
             kniffelModel.update(taCard.getSelectedRow());
+            tfBonusOben.setText(""+kniffelBl.getSumBonusOben());
+            tfSummeOben.setText(""+kniffelBl.getSumOben());
+            tfSummeUnten.setText(""+kniffelBl.getSumUnten());
+            tfPunkteGes.setText(""+kniffelBl.getSum());
         }
     }//GEN-LAST:event_onClickCard
 

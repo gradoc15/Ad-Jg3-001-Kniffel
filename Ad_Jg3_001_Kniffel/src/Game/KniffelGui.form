@@ -137,7 +137,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfSummeOben">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -147,7 +147,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfBonusOben">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -157,7 +157,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfSummeUnten">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -167,7 +167,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfPunkteGes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
