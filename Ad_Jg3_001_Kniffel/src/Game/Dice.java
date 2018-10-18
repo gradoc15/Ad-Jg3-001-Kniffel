@@ -57,7 +57,9 @@ public class Dice
     
     public void reroll()
     {
-        if(!selected)
+        if(!selected || num == 0)
           num = rand.nextInt(6)+1;
     }
+    
+   
 }

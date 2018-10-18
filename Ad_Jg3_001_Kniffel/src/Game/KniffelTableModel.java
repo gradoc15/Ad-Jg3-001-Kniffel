@@ -32,7 +32,6 @@ public class KniffelTableModel extends AbstractTableModel
         dataRow.add(new KniffelRow("StrasseGroß",10));
         dataRow.add(new KniffelRow("Kniffel",11));
         
-        dataRow.add(new KniffelRow("Bonus",13));
     }
     
     public void update(int row)
@@ -43,7 +42,7 @@ public class KniffelTableModel extends AbstractTableModel
     @Override
     public int getRowCount()
     {
-        return dataRow.size()-1;
+        return dataRow.size();
     }
 
     @Override
@@ -62,6 +61,60 @@ public class KniffelTableModel extends AbstractTableModel
     public String getColumnName(int col)
     {
         return COLNMNAME[col];
+    }
+    
+    public int getSumO()
+    {
+        int sum = 0;
+        
+        for(int i = 0; i < 6; i++)
+        {
+            sum += dataRow.get(i).getPoints();
+        }
+        
+        return sum;
+    }
+    
+    public int getSumU()
+    {
+        int sum = 0;
+        
+        for(int i = 6; i < dataRow.size(); i++)
+        {
+            sum+= dataRow.get(i).getPoints();
+        }
+        
+        return sum;
+    }
+    
+    public int getBonus()
+    {
+        if(getSumO() > 63)
+            return 35;
+        else
+            return 0;
+    }
+    
+    public int getSum()
+    {
+        return getBonus()+getSumO()+getSumU();
+    }
+    
+    
+    public boolean isUseAbleRow()
+    {
+        boolean useAble = false;
+        
+        for(KniffelRow row : dataRow)
+        {
+            if(!row.isUsed())
+                useAble = true;
+            
+            if(useAble)
+                break;
+        }
+        
+        return useAble;
     }
     
 }

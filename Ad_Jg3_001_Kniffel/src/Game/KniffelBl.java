@@ -191,6 +191,12 @@ public class KniffelBl
         return sum;
     }
     
-      
+   public void unselectAll()
+    {
+        for(Dice d : dice)
+        {
+            d.setSelected(false);
+        }
+    }   
 }
 

@@ -196,15 +196,20 @@ public class KniffelGui extends javax.swing.JFrame
             {
                 kniffelBl.calc(((KniffelRow) kniffelModel.getValueAt(taCard.getSelectedRow(), 0)),diceBl.getDice());
                 r.setUsed(true);
+                kniffelBl.unselectAll();
 
                 kniffelModel.update(taCard.getSelectedRow());
-    //            tfBonusOben.setText(""+kniffelBl.getSumBonusOben());
-    //            tfSummeOben.setText(""+kniffelBl.getSumOben());
-    //            tfSummeUnten.setText(""+kniffelBl.getSumUnten());
-    //            tfPunkteGes.setText(""+kniffelBl.getSum());
-                rerollCount  = 0;
+                tfBonusOben.setText(""+kniffelModel.getBonus());
+                tfSummeOben.setText(""+kniffelModel.getSumO());
+                tfSummeUnten.setText(""+kniffelModel.getSumU());
+                tfPunkteGes.setText(""+kniffelModel.getSum());
                 
                 diceBl.setDiceDefault();
+                
+                if(kniffelModel.isUseAbleRow())
+                    rerollCount  = 0;
+                else
+                    JOptionPane.showMessageDialog(null, "Das Spiel ist vorbei");
             }
         }
         else
